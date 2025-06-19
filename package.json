@@ -8,7 +8,7 @@
     "format": "npx prettier --write .",
     "lint": "eslint .",
     "prepare": "husky install",
-    "start": "tsc -b && node dist/index.js",
+    "start": "npx prisma generate && tsc -b && node dist/index.js",
     "seed": "node dist/seed/index.js"
   },
   "author": "",
