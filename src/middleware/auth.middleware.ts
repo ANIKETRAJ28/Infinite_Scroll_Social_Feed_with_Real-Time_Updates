@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { IJWT } from '../interface/jwt.interface';
+import { options } from '../util/cookie.util';
 
 export function jwtMiddleware(req: Request, res: Response, next: NextFunction) {
   try {
@@ -63,7 +64,7 @@ export function isUserMiddleware(req: Request, res: Response, next: NextFunction
 
 export function logoutUser(req: Request, res: Response) {
   try {
-    res.clearCookie('JWT');
+    res.clearCookie('JWT', options);
     res.status(200).json({
       message: 'User logged out successfully',
     });
